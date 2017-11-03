@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Ben Hall <ben@benhall.me.uk>
+MAINTAINER Saul Ramos Vaca <ichwill100@hotmail.com>
 
 RUN apt-get update &&\
     apt-get install -y openssh-server curl git &&\
