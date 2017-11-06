@@ -1,0 +1,15 @@
+version: '2'
+volumes:
+  jenkins-var-jenkins:
+    driver: rancher-nfs
+  jenkins-etc-ssl-certs:
+    driver: rancher-nfs
+services:
+  Jenkins:
+    image: jenkins/jenkins:2.73.2
+    stdin_open: true
+    volumes:
+    - jenkins-var-jenkins:/var/jenkins_home
+    - jenkins-etc-ssl-certs:/etc/ssl/certs
+    - /var/run/docker.sock:/var/run/docker.sock
+    tty: true
