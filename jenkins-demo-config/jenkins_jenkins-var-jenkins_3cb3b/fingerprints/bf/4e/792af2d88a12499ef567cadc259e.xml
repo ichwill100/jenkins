@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-11-06 11:03:10.901 UTC</timestamp>
+  <md5sum>bf4e792af2d88a12499ef567cadc259e</md5sum>
+  <fileName>ichwill100/flask-sample-demo</fileName>
+  <usages/>
+  <facets>
+    <org.jenkinsci.plugins.registry.notification.TriggerStore_-TriggerEntry plugin="dockerhub-notification@2.2.0">
+      <timestamp>1509966190892</timestamp>
+      <pushNotification class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubPushNotification">
+        <webHookPayload class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookPayload">
+          <json>{&quot;push_data&quot;:{&quot;pushed_at&quot;:1509966189,&quot;images&quot;:[],&quot;tag&quot;:&quot;16&quot;,&quot;pusher&quot;:&quot;ichwill100&quot;},&quot;callback_url&quot;:&quot;https://registry.hub.docker.com/u/ichwill100/flask-sample-demo/hook/223330542cbce42ehdchd2a02000hg244/&quot;,&quot;repository&quot;:{&quot;status&quot;:&quot;Active&quot;,&quot;description&quot;:&quot;demo web in flask&quot;,&quot;is_trusted&quot;:true,&quot;full_description&quot;:null,&quot;repo_url&quot;:&quot;https://hub.docker.com/r/ichwill100/flask-sample-demo&quot;,&quot;owner&quot;:&quot;ichwill100&quot;,&quot;is_official&quot;:false,&quot;is_private&quot;:false,&quot;name&quot;:&quot;flask-sample-demo&quot;,&quot;namespace&quot;:&quot;ichwill100&quot;,&quot;star_count&quot;:0,&quot;comment_count&quot;:0,&quot;date_created&quot;:1508596687,&quot;dockerfile&quot;:&quot;FROM ichwill100/flask-sample-demo:latest\n\nMAINTAINER Your Name \&quot;saul.vaca@amaris.com\&quot;\n\nRUN apt-get update -y &amp;&amp; \\\n    apt-get install -y python-pip python-dev build-essential\n\n# We copy just the requirements.txt first to leverage Docker cache\nCOPY ./requirements.txt /app/requirements.txt\n\nWORKDIR /app\n\nRUN pip install --upgrade pip\n\nRUN pip install -r requirements.txt\n\nCOPY . /app\n\nEXPOSE 5000\n\n#RUN export FLASK_APP=app.py\n\nENTRYPOINT [ \&quot;python\&quot; ]\n\nCMD [ \&quot;hello.py\&quot; ]\n&quot;,&quot;repo_name&quot;:&quot;ichwill100/flask-sample-demo&quot;}}</json>
+          <received>1509966190892</received>
+          <pushNotifications>
+            <org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubPushNotification reference="../../.."/>
+          </pushNotifications>
+        </webHookPayload>
+        <repoName>ichwill100/flask-sample-demo</repoName>
+        <pushedAt>2017-11-06 11:03:09.0 UTC</pushedAt>
+        <callbackHandler class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookPayload$1">
+          <val_-dockerHubPushNotification reference="../.."/>
+          <outer-class reference="../../webHookPayload"/>
+        </callbackHandler>
+        <callbackUrl>https://registry.hub.docker.com/u/ichwill100/flask-sample-demo/hook/223330542cbce42ehdchd2a02000hg244/</callbackUrl>
+      </pushNotification>
+      <entries class="linked-list">
+        <org.jenkinsci.plugins.registry.notification.TriggerStore_-TriggerEntry_-RunEntry>
+          <jobName>flask-sample-demo</jobName>
+          <buildId>25</buildId>
+          <done>true</done>
+        </org.jenkinsci.plugins.registry.notification.TriggerStore_-TriggerEntry_-RunEntry>
+      </entries>
+    </org.jenkinsci.plugins.registry.notification.TriggerStore_-TriggerEntry>
+  </facets>
+</fingerprint>

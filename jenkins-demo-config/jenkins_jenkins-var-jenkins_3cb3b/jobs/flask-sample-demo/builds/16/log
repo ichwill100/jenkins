@@ -1,0 +1,11 @@
+Triggered by push of ichwill100/flask-sample-demo to DockerHub@registry.hub.docker.com
+Building in workspace /var/jenkins_home/workspace/flask-sample-demo
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is active
+waiting service state to be upgraded
+current service state is upgraded
+waiting service state to be active
+current service state is active
+Finished: SUCCESS

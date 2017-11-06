@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Docker image build in DockerHub after GitHub push</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <org.jenkinsci.plugins.registry.notification.DockerHubTrigger plugin="dockerhub-notification@2.2.0">
+      <spec></spec>
+      <options class="vector">
+        <org.jenkinsci.plugins.registry.notification.opt.impl.TriggerForAllUsedInJob/>
+        <org.jenkinsci.plugins.registry.notification.opt.impl.TriggerOnSpecifiedImageNames>
+          <repoNames>
+            <string>ichwill100/flask-sample-demo</string>
+          </repoNames>
+        </org.jenkinsci.plugins.registry.notification.opt.impl.TriggerOnSpecifiedImageNames>
+      </options>
+    </org.jenkinsci.plugins.registry.notification.DockerHubTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <jenkins.plugins.rancher.RancherBuilder plugin="rancher@1.0.5">
+      <environmentId>1a21</environmentId>
+      <endpoint>http://52.57.250.87:8080/v2-beta</endpoint>
+      <credentialId>f9482d41-15c5-42d2-bda5-aa4cdc178537</credentialId>
+      <service>flask-sample-stack/flask-sample-demo</service>
+      <image>ichwill100/flask-sample-demo</image>
+      <confirm>true</confirm>
+      <ports></ports>
+      <environments></environments>
+      <rancherClient>
+        <accesskey>0F4A22FF7610598714F5</accesskey>
+        <secretKey>wS7u6uwdBo3GENnYVsa9pfdg6mZ4cBkgCwzeE31c</secretKey>
+        <endpoint>http://52.57.250.87:8080/v2-beta</endpoint>
+      </rancherClient>
+    </jenkins.plugins.rancher.RancherBuilder>
+  </builders>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.20">
+      <recipients>saul.vaca@amaris.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers/>
+</project>

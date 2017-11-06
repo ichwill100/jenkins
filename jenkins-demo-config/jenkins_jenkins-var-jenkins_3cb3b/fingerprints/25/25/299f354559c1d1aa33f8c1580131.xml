@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-10-26 13:47:58.413 UTC</timestamp>
+  <md5sum>2525299f354559c1d1aa33f8c1580131</md5sum>
+  <fileName>Credential id=6314845c-3abe-4c65-9f8e-d2002ee67c88 name=ichwill100/****** (Github ichwill100)</fileName>
+  <usages>
+    <entry>
+      <string>demo-flask-jenkins-slave</string>
+      <ranges>1-19</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

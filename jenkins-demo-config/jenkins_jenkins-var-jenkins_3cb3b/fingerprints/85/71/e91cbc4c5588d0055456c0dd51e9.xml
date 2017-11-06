@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-11-03 14:43:55.271 UTC</timestamp>
+  <md5sum>8571e91cbc4c5588d0055456c0dd51e9</md5sum>
+  <fileName>Credential id=4e3da15c-e3b7-4d8d-ac60-5b7e9a14284e name=jenkins/****** (docker-jenkins-slave)</fileName>
+  <usages/>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet plugin="credentials@2.1.16">
+      <timestamp>1509720235270</timestamp>
+      <nodeName>docker-agent-42eab8c734fe</nodeName>
+      <timestamp0>1509720235270</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet>
+    <com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet plugin="credentials@2.1.16">
+      <timestamp>1509720255269</timestamp>
+      <nodeName>docker-agent-c6b6ea168f0a</nodeName>
+      <timestamp0>1509720255269</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

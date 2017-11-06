@@ -1,0 +1,9 @@
+Triggered by push of ichwill100/flask-sample-demo to DockerHub@registry.hub.docker.com
+Building on master in workspace /var/jenkins_home/workspace/flask-sample-demo
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is upgrading
+ERROR: Before upgrade service the service instance state should be 'inactive' or 'active'
+[8mha:////4BjWT5Iaof6VliD7FyhoN9gLd4yTPBhKMIDvX9cYNqCoAAAAVx+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0mV3NWzufebKBsTA0NFEYMUmgZnCA1SyAABjCCFBQC2xNaiYAAAAA==[0mSending e-mails to: saul.vaca@amaris.com
+Finished: FAILURE

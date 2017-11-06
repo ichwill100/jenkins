@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters class="java.util.Collections$UnmodifiableList">
+        <c class="linked-list"/>
+        <list class="linked-list" reference="../c"/>
+      </parameters>
+      <parameterDefinitionNames class="empty-list"/>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookCause plugin="dockerhub-notification@2.2.0">
+            <pushNotification class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubPushNotification">
+              <webHookPayload class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookPayload">
+                <json>{&quot;push_data&quot;:{&quot;pushed_at&quot;:1508923001,&quot;images&quot;:[],&quot;tag&quot;:&quot;latest&quot;,&quot;pusher&quot;:&quot;ichwill100&quot;},&quot;callback_url&quot;:&quot;https://registry.hub.docker.com/u/ichwill100/flask-sample-demo/hook/2ceibhb3323ij4hbgfg4g4jc43cfdg4hg/&quot;,&quot;repository&quot;:{&quot;status&quot;:&quot;Active&quot;,&quot;description&quot;:&quot;demo web in flask&quot;,&quot;is_trusted&quot;:true,&quot;full_description&quot;:null,&quot;repo_url&quot;:&quot;https://hub.docker.com/r/ichwill100/flask-sample-demo&quot;,&quot;owner&quot;:&quot;ichwill100&quot;,&quot;is_official&quot;:false,&quot;is_private&quot;:false,&quot;name&quot;:&quot;flask-sample-demo&quot;,&quot;namespace&quot;:&quot;ichwill100&quot;,&quot;star_count&quot;:0,&quot;comment_count&quot;:0,&quot;date_created&quot;:1508596687,&quot;dockerfile&quot;:&quot;FROM ubuntu:latest\n\nMAINTAINER Your Name \&quot;saul.vaca@amaris.com\&quot;\n\nRUN apt-get update -y &amp;&amp; \\\n    apt-get install -y python-pip python-dev build-essential\n\n# We copy just the requirements.txt first to leverage Docker cache\nCOPY ./requirements.txt /app/requirements.txt\n\nWORKDIR /app\n\nRUN pip install --upgrade pip\n\nRUN pip install -r requirements.txt\n\nCOPY . /app\n\nEXPOSE 5000\n\n#RUN export FLASK_APP=app.py\n\nENTRYPOINT [ \&quot;python\&quot; ]\n\nCMD [ \&quot;hello.py\&quot; ]\n&quot;,&quot;repo_name&quot;:&quot;ichwill100/flask-sample-demo&quot;}}</json>
+                <received>1508923001855</received>
+                <pushNotifications>
+                  <org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubPushNotification reference="../../.."/>
+                </pushNotifications>
+              </webHookPayload>
+              <repoName>ichwill100/flask-sample-demo</repoName>
+              <pushedAt>2017-10-25 09:16:41.0 UTC</pushedAt>
+              <callbackHandler class="org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookPayload$1">
+                <val_-dockerHubPushNotification reference="../.."/>
+                <outer-class reference="../../webHookPayload"/>
+              </callbackHandler>
+              <callbackUrl>https://registry.hub.docker.com/u/ichwill100/flask-sample-demo/hook/2ceibhb3323ij4hbgfg4g4jc43cfdg4hg/</callbackUrl>
+            </pushNotification>
+          </org.jenkinsci.plugins.registry.notification.webhook.dockerhub.DockerHubWebHookCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+  </actions>
+  <queueId>18</queueId>
+  <timestamp>1508923010063</timestamp>
+  <startTime>1508923010079</startTime>
+  <result>SUCCESS</result>
+  <duration>36966</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/jenkins_home/workspace/flask-sample-demo</workspace>
+  <hudsonVersion>2.73.2</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>

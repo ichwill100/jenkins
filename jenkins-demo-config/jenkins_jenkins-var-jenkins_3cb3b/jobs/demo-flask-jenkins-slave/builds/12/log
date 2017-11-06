@@ -1,0 +1,294 @@
+Started by user [8mha:////4OU/jaPo4iySnl/uMHscd9qr+HKwJbxQsIm4I1KMKWsFAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9lNTcfAAxc9oSvwAAAA==[0mdemo
+Building remotely on [8mha:////4EJPo14KxoFRedv1HkoWfyWhxBl9B+L/70qCqy7x70lIAAAAqR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzhEgZZ/eT83ILSktQi/ZT85OzUIl2DVMtkU2MT01TLNFMA1HnsGdIAAAA=[0mdocker-0e9c5345e9f5 (docker) in workspace /home/jenkins/workspace/demo-flask-jenkins-slave
+Cloning the remote Git repository
+Cloning repository https://github.com/ichwill100/flask-sample
+ > git init /home/jenkins/workspace/demo-flask-jenkins-slave # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision c1ffd1ece2d3219274e241c47279de4da9e5526c (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c1ffd1ece2d3219274e241c47279de4da9e5526c
+Commit message: "test 08"
+ > git rev-list c1ffd1ece2d3219274e241c47279de4da9e5526c # timeout=10
+[demo-flask-jenkins-slave] $ /bin/sh -xe /tmp/jenkins1145349528437149775.sh
++ ls
+Dockerfile
+hello.py
+requirements.txt
+static
+templates
++ docker info
+Containers: 43
+ Running: 39
+ Paused: 0
+ Stopped: 4
+Images: 72
+Server Version: 17.03.1-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local rancher-nfs
+ Network: bridge host macvlan null overlay
+ Log: 
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 4ab9917febca54791c5f071a9d1f404867857fcc
+runc version: 54296cf40ad8143b62dbcaa1d90e520a2136ddfe
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-1020-aws
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: rancher-host1
+ID: HZS4:ID67:7H65:72MP:M2XT:AQAK:7OZQ:JJ2S:Y3GU:NOT6:2663:52GP
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+
+WARNING: No swap limit support
++ docker build -t ichwill100/flask-sample-demo:12 .
+Sending build context to Docker daemon  4.414MB
+Step 1/11 : FROM ichwill100/flask-sample-demo:latest
+ ---> 7f1f9c6f91d1
+Step 2/11 : MAINTAINER Your Name "saul.vaca@amaris.com"
+ ---> Using cache
+ ---> f4d55ad10e62
+Step 3/11 : RUN apt-get update -y &&     apt-get install -y python-pip python-dev build-essential
+ ---> Using cache
+ ---> 41e84cf8ced0
+Step 4/11 : COPY ./requirements.txt /app/requirements.txt
+ ---> Using cache
+ ---> 650266dd296d
+Step 5/11 : WORKDIR /app
+ ---> Using cache
+ ---> bbb45c9bb83c
+Step 6/11 : RUN pip install --upgrade pip
+ ---> Using cache
+ ---> ec70b3c0bad0
+Step 7/11 : RUN pip install -r requirements.txt
+ ---> Using cache
+ ---> f01a66cdbc9c
+Step 8/11 : COPY . /app
+ ---> 5255c0f643f1
+Removing intermediate container b1b4c55ff06a
+Step 9/11 : EXPOSE 5000
+ ---> Running in 40d6ff2b7404
+ ---> bb1643860c77
+Removing intermediate container 40d6ff2b7404
+Step 10/11 : ENTRYPOINT python
+ ---> Running in 4c0b9339f12e
+ ---> a74d8783fec9
+Removing intermediate container 4c0b9339f12e
+Step 11/11 : CMD hello.py
+ ---> Running in a87582285738
+ ---> ba203c04dca2
+Removing intermediate container a87582285738
+Successfully built ba203c04dca2
++ docker tag ichwill100/flask-sample-demo:12 ichwill100/flask-sample-demo:latest
++ docker images
+REPOSITORY                                  TAG                 IMAGE ID            CREATED                  SIZE
+ichwill100/flask-sample-demo                12                  ba203c04dca2        Less than a second ago   488MB
+ichwill100/flask-sample-demo                latest              ba203c04dca2        Less than a second ago   488MB
+ichwill100/flask-sample-demo                11                  45ff6ab2e81c        2 days ago               488MB
+ichwill100/flask-sample-demo                <none>              7f1f9c6f91d1        2 days ago               483MB
+ichwill100/flask-sample-demo                <none>              78a09ae9dcb8        2 days ago               478MB
+ichwill100/flask-sample-demo                10                  53f86ece1876        2 days ago               483MB
+ichwill100/flask-sample-demo                9                   26f990a40629        2 days ago               478MB
+ichwill100/flask-sample-demo                8                   7251c12985e5        2 days ago               478MB
+ichwill100/jenkins-slave-jdk-docker         latest              e86e67fdcfb3        2 days ago               740MB
+ichwill100/jenkins-slave-jdk-docker         <none>              8d25dd88d4d3        2 days ago               740MB
+ichwill100/jenkins-slave-jdk-docker         <none>              4b5f7f31d50f        2 days ago               673MB
+ichwill100/jenkins-slave-ssh-xenial         latest              bbab5e0cb129        3 days ago               430MB
+ichwill100/flask-sample-demo                <none>              da447c796781        10 days ago              469MB
+jenkins/jenkins                             2.73.2              e6b6a36fca5a        3 weeks ago              814MB
+prom/node-exporter                          latest              12d51ffa2b22        4 weeks ago              22.8MB
+rancher/agent                               v1.2.6              14af8fd16e1f        2 months ago             237MB
+rancher/network-manager                     v0.7.8              57331ed1b3ed        2 months ago             249MB
+rancher/net                                 v0.11.9             e8c5234872e1        2 months ago             267MB
+rancher/dns                                 v0.15.3             2779a18358f2        2 months ago             240MB
+rancher/metadata                            v0.9.4              387e4153c185        2 months ago             251MB
+rancher/healthcheck                         v0.3.3              14de771cc178        2 months ago             385MB
+rancher/lb-service-haproxy                  v0.7.9              774f6505bd28        3 months ago             312MB
+rancher/storage-nfs                         v0.8.5              7a35abd1426c        3 months ago             218MB
+rancher/scheduler                           v0.8.2              690ef14a99b7        3 months ago             242MB
+infinityworks/graf-db                       11                  2c4fd7c7333a        6 months ago             4.54MB
+prom/prometheus                             v1.6.0              c351d5f42485        6 months ago             75.3MB
+infinityworks/prom-conf                     19                  ece6596a4ee7        6 months ago             3.99MB
+rancher/net                                 holder              665d9f6e8cc1        7 months ago             267MB
+kibana                                      5.3.0               9fb73273a30c        7 months ago             329MB
+grafana/grafana                             4.2.0               8c4ef64b4ad1        7 months ago             278MB
+google/cadvisor                             latest              f9ba08bafdea        8 months ago             57.3MB
+infinityworks/prometheus-rancher-exporter   v0.22.52            43b3ae5364ea        9 months ago             23.7MB
+kibana                                      4.6.3               d3b4e3b5b106        10 months ago            303MB
+benhall/dind-jenkins-agent                  latest              d97d6673e8f9        19 months ago            659MB
+elasticsearch                               1.7.3               c6e1beef1acb        23 months ago            345MB
+rancher/kopf                                v0.4.0              f3e805a34ebd        2 years ago              182MB
+rancher/elasticsearch-conf                  v0.4.0              eebd86a05800        2 years ago              10.5MB
+rancher/nginx-conf                          v0.2.0              70e818251292        2 years ago              10.5MB
+rancher/nginx                               v1.9.4-3            5bb0cd35a1d8        2 years ago              133MB
+rancher/logstash-config                     v0.2.0              f8f9bb811e0b        2 years ago              10.5MB
+rancher/logspout-logstash                   v0.2.0              1c246d084501        2 years ago              24.4MB
+redis                                       3.0.3               a70b69767606        2 years ago              109MB
+kibana                                      4.1.1               5ff0cd0806dd        2 years ago              184MB
+logstash                                    1.5.3-1             a9ee61d11cf1        2 years ago              631MB
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is active
+waiting service state to be upgraded
+current service state is upgraded
+waiting service state to be active
+current service state is active
+Docker Build
+Docker Build: building image at path /home/jenkins/workspace/demo-flask-jenkins-slave
+Step 1/11 : FROM ichwill100/flask-sample-demo:latest
+
+ ---> 7f1f9c6f91d1
+
+Step 2/11 : MAINTAINER Your Name "saul.vaca@amaris.com"
+
+ ---> Using cache
+
+ ---> f4d55ad10e62
+
+Step 3/11 : RUN apt-get update -y &&     apt-get install -y python-pip python-dev build-essential
+
+ ---> Using cache
+
+ ---> 41e84cf8ced0
+
+Step 4/11 : COPY ./requirements.txt /app/requirements.txt
+
+ ---> 736bd3d6c045
+
+Removing intermediate container 22feba3690bd
+
+Step 5/11 : WORKDIR /app
+
+ ---> 33b5764d3a88
+
+Removing intermediate container 11b334632ed8
+
+Step 6/11 : RUN pip install --upgrade pip
+
+ ---> Running in 5cf74a9459a2
+
+Requirement already up-to-date: pip in /usr/local/lib/python2.7/dist-packages
+
+ ---> eca9b2a60199
+
+Removing intermediate container 5cf74a9459a2
+
+Step 7/11 : RUN pip install -r requirements.txt
+
+ ---> Running in 2d28f7c8d6a0
+
+Requirement already satisfied: Flask==0.10.1 in /usr/local/lib/python2.7/dist-packages (from -r requirements.txt (line 1))
+
+Requirement already satisfied: itsdangerous>=0.21 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+
+Requirement already satisfied: Werkzeug>=0.7 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+
+Requirement already satisfied: Jinja2>=2.4 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python2.7/dist-packages (from Jinja2>=2.4->Flask==0.10.1->-r requirements.txt (line 1))
+
+ ---> c893038d4e1c
+
+Removing intermediate container 2d28f7c8d6a0
+
+Step 8/11 : COPY . /app
+
+ ---> ad832fd3ed7c
+
+Removing intermediate container 17c75381b4e7
+
+Step 9/11 : EXPOSE 5000
+
+ ---> Running in 472c5ca5f228
+
+ ---> d13afeeeea3c
+
+Removing intermediate container 472c5ca5f228
+
+Step 10/11 : ENTRYPOINT python
+
+ ---> Running in ee663d52fd8d
+
+ ---> 72f4fb9163bb
+
+Removing intermediate container ee663d52fd8d
+
+Step 11/11 : CMD hello.py
+
+ ---> Running in 18b1b24c6410
+
+ ---> 457132687262
+
+Removing intermediate container 18b1b24c6410
+
+Successfully built 457132687262
+
+Tagging built image with flask-sample-stack/flask-sample-demo:${BUILD_NUMBER}
+ERROR: Build step failed with exception
+[8mha:////4BjWT5Iaof6VliD7FyhoN9gLd4yTPBhKMIDvX9cYNqCoAAAAVx+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0mV3NWzufebKBsTA0NFEYMUmgZnCA1SyAABjCCFBQC2xNaiYAAAAA==[0mcom.github.dockerjava.api.exception.InternalServerErrorException: {"message":"invalid tag format"}
+
+	at com.github.dockerjava.netty.handler.HttpResponseHandler.channelRead0(HttpResponseHandler.java:109)
+	at com.github.dockerjava.netty.handler.HttpResponseHandler.channelRead0(HttpResponseHandler.java:33)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:310)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:284)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:134)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:644)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:579)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:496)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:458)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Build step 'Build / Publish Docker Image' marked build as failure
+Sending e-mails to: saul.vaca@amaris.com
+Finished: FAILURE

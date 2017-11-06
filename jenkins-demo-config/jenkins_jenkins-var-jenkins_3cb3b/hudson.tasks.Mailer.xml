@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.20">
+  <defaultSuffix>@amaris.com</defaultSuffix>
+  <hudsonUrl>http://18.194.182.24:8080/</hudsonUrl>
+  <smtpAuthUsername>ichwill100@gmail.com</smtpAuthUsername>
+  <smtpAuthPassword>{AQAAABAAAAAQc8i5/mMQGbQ1hkMqMGJi+EMSMy8khFIGuLRMod7uPXs=}</smtpAuthPassword>
+  <smtpHost>smtp.gmail.com</smtpHost>
+  <useSsl>true</useSsl>
+  <smtpPort>465</smtpPort>
+  <charset>UTF-8</charset>
+</hudson.tasks.Mailer_-DescriptorImpl>

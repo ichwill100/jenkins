@@ -1,0 +1,173 @@
+Started by user [8mha:////4OU/jaPo4iySnl/uMHscd9qr+HKwJbxQsIm4I1KMKWsFAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9lNTcfAAxc9oSvwAAAA==[0mdemo
+Building remotely on [8mha:////4MLIxNhU5312WTouRvkMKgx7KtbMsacTl5EkNL/Tqv0YAAAAqR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzhEgZZ/eT83ILSktQi/ZT85OzUIt3URMOUJPOUFMu0JBMAMhZaLdIAAAA=[0mdocker-ea1db7dd9fb4 (docker) in workspace /home/jenkins/workspace/demo-flask-jenkins-slave
+Cloning the remote Git repository
+Cloning repository https://github.com/ichwill100/flask-sample
+ > git init /home/jenkins/workspace/demo-flask-jenkins-slave # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 5b3d240b2bba8931dee4a46e8164cf4eec870231 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5b3d240b2bba8931dee4a46e8164cf4eec870231
+Commit message: "test02 amaris"
+ > git rev-list 5b3d240b2bba8931dee4a46e8164cf4eec870231 # timeout=10
+[demo-flask-jenkins-slave] $ /bin/sh -xe /tmp/jenkins748547005271674244.sh
++ ls
+Dockerfile
+hello.py
+requirements.txt
+static
+templates
++ docker info
+Containers: 16
+ Running: 15
+ Paused: 0
+ Stopped: 1
+Images: 17
+Server Version: 17.03.1-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local rancher-nfs
+ Network: bridge host macvlan null overlay
+ Log: 
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 4ab9917febca54791c5f071a9d1f404867857fcc
+runc version: 54296cf40ad8143b62dbcaa1d90e520a2136ddfe
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-1020-aws
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: rancher-host1
+ID: HZS4:ID67:7H65:72MP:M2XT:AQAK:7OZQ:JJ2S:Y3GU:NOT6:2663:52GP
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+
+WARNING: No swap limit support
++ docker build -t ichwill100/flask-sample-demo:8 .
+Sending build context to Docker daemon  4.403MB
+Step 1/11 : FROM ichwill100/flask-sample-demo:latest
+ ---> da447c796781
+Step 2/11 : MAINTAINER Your Name "saul.vaca@amaris.com"
+ ---> Running in fe44bf09ea8f
+ ---> 4a7690e20a09
+Removing intermediate container fe44bf09ea8f
+Step 3/11 : RUN apt-get update -y &&     apt-get install -y python-pip python-dev build-essential
+ ---> Running in fe3602871b38
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [51.1 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [485 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [223 kB]
+Get:8 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [222 kB]
+Get:9 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [843 kB]
+Get:10 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [696 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [18.5 kB]
+Fetched 2845 kB in 0s (4516 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.1ubuntu2).
+python-dev is already the newest version (2.7.11-1).
+python-pip is already the newest version (8.1.1-2ubuntu0.4).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+ ---> 7a1d461ddcb4
+Removing intermediate container fe3602871b38
+Step 4/11 : COPY ./requirements.txt /app/requirements.txt
+ ---> 6fc555964f65
+Removing intermediate container 69e988ac1314
+Step 5/11 : WORKDIR /app
+ ---> 3f7c434d523d
+Removing intermediate container f0ef98030299
+Step 6/11 : RUN pip install --upgrade pip
+ ---> Running in 2efac9ad9de5
+Requirement already up-to-date: pip in /usr/local/lib/python2.7/dist-packages
+ ---> 7376d0ee3056
+Removing intermediate container 2efac9ad9de5
+Step 7/11 : RUN pip install -r requirements.txt
+ ---> Running in ac8c012b4e33
+Requirement already satisfied: Flask==0.10.1 in /usr/local/lib/python2.7/dist-packages (from -r requirements.txt (line 1))
+Requirement already satisfied: itsdangerous>=0.21 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: Werkzeug>=0.7 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: Jinja2>=2.4 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python2.7/dist-packages (from Jinja2>=2.4->Flask==0.10.1->-r requirements.txt (line 1))
+ ---> 6a7f0accb79b
+Removing intermediate container ac8c012b4e33
+Step 8/11 : COPY . /app
+ ---> 53bc06f5382a
+Removing intermediate container 48d958f516e2
+Step 9/11 : EXPOSE 5000
+ ---> Running in 9ac303f10d0c
+ ---> cce3a2537009
+Removing intermediate container 9ac303f10d0c
+Step 10/11 : ENTRYPOINT python
+ ---> Running in 6cfe8b572013
+ ---> 16d58072a56c
+Removing intermediate container 6cfe8b572013
+Step 11/11 : CMD hello.py
+ ---> Running in 26ebbf8a1baf
+ ---> 7251c12985e5
+Removing intermediate container 26ebbf8a1baf
+Successfully built 7251c12985e5
++ docker tag ichwill100/flask-sample-demo:8 ichwill100/flask-sample-demo:latest
++ docker images
+REPOSITORY                            TAG                 IMAGE ID            CREATED                  SIZE
+ichwill100/flask-sample-demo          8                   7251c12985e5        Less than a second ago   478MB
+ichwill100/flask-sample-demo          latest              7251c12985e5        Less than a second ago   478MB
+ichwill100/jenkins-slave-jdk-docker   latest              e86e67fdcfb3        51 seconds ago           740MB
+ichwill100/jenkins-slave-jdk-docker   <none>              8d25dd88d4d3        12 minutes ago           740MB
+ichwill100/jenkins-slave-jdk-docker   <none>              4b5f7f31d50f        24 minutes ago           673MB
+ichwill100/jenkins-slave-ssh-xenial   latest              bbab5e0cb129        22 hours ago             430MB
+ichwill100/flask-sample-demo          <none>              da447c796781        8 days ago               469MB
+jenkins/jenkins                       2.73.2              e6b6a36fca5a        3 weeks ago              814MB
+rancher/agent                         v1.2.6              14af8fd16e1f        2 months ago             237MB
+rancher/network-manager               v0.7.8              57331ed1b3ed        2 months ago             249MB
+rancher/net                           v0.11.9             e8c5234872e1        2 months ago             267MB
+rancher/dns                           v0.15.3             2779a18358f2        2 months ago             240MB
+rancher/metadata                      v0.9.4              387e4153c185        2 months ago             251MB
+rancher/healthcheck                   v0.3.3              14de771cc178        2 months ago             385MB
+rancher/lb-service-haproxy            v0.7.9              774f6505bd28        2 months ago             312MB
+rancher/storage-nfs                   v0.8.5              7a35abd1426c        3 months ago             218MB
+rancher/scheduler                     v0.8.2              690ef14a99b7        3 months ago             242MB
+rancher/net                           holder              665d9f6e8cc1        7 months ago             267MB
+benhall/dind-jenkins-agent            latest              d97d6673e8f9        19 months ago            659MB
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is active
+waiting service state to be upgraded
+current service state is upgraded
+Sending e-mails to: saul.vaca@amaris.com
+Finished: SUCCESS

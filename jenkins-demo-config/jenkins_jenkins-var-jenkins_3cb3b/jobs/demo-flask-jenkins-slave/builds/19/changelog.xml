@@ -1,0 +1,11 @@
+commit 67f709b06e4c3ba2bf0398c9dc28a28717a73eb2
+tree 0b007d36e66e9f1ceafbe6036f11c0d81c09e3e8
+parent b890516af31135f8aa333cd801eb2adfbab5198a
+author Saul Ramos Vaca <ichwill100@hotmail.com> 2017-11-06 14:12:43 +0100
+committer Saul Ramos Vaca <ichwill100@hotmail.com> 2017-11-06 14:12:43 +0100
+
+    amaris10 to amaris
+
+
+
+:100755 100755 6e5b6fc2d67123de8c7babf9c155e959ff817542 3971efc665f8bc051bc8f164a3427c16ca7d9055 M	templates/index.html

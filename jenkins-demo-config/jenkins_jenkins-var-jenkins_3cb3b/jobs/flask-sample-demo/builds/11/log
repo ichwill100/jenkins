@@ -1,0 +1,9 @@
+Started by user [8mha:////4OU/jaPo4iySnl/uMHscd9qr+HKwJbxQsIm4I1KMKWsFAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9lNTcfAAxc9oSvwAAAA==[0mdemo
+Building in workspace /var/jenkins_home/workspace/flask-sample-demo
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack not exist, create first
+Creating service instance
+waiting service state to be active
+current service state is active
+Sending e-mails to: saul.vaca@amaris.com
+Finished: SUCCESS

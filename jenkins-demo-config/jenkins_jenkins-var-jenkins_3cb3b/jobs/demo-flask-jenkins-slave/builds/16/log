@@ -1,0 +1,362 @@
+Started by user [8mha:////4OU/jaPo4iySnl/uMHscd9qr+HKwJbxQsIm4I1KMKWsFAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9lNTcfAAxc9oSvwAAAA==[0mdemo
+Building remotely on [8mha:////4BB07XniCAyTv31cz7+LQ2CIa2yDNALmHZdF7QWIdmDzAAAAqR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzhEgZZ/eT83ILSktQi/ZT85OzUIl0zC1ND41SLZHPLFEMAwYvHEdIAAAA=[0mdocker-68513e8c79d1 (docker) in workspace /home/jenkins/workspace/demo-flask-jenkins-slave
+Cloning the remote Git repository
+Cloning repository https://github.com/ichwill100/flask-sample
+ > git init /home/jenkins/workspace/demo-flask-jenkins-slave # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision c1ffd1ece2d3219274e241c47279de4da9e5526c (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c1ffd1ece2d3219274e241c47279de4da9e5526c
+Commit message: "test 08"
+ > git rev-list c1ffd1ece2d3219274e241c47279de4da9e5526c # timeout=10
+[demo-flask-jenkins-slave] $ /bin/sh -xe /tmp/jenkins4385141343799131001.sh
++ ls
+Dockerfile
+hello.py
+requirements.txt
+static
+templates
++ docker info
+Containers: 43
+ Running: 39
+ Paused: 0
+ Stopped: 4
+Images: 106
+Server Version: 17.03.1-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: rancher-nfs local
+ Network: bridge host macvlan null overlay
+ Log: 
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 4ab9917febca54791c5f071a9d1f404867857fcc
+runc version: 54296cf40ad8143b62dbcaa1d90e520a2136ddfe
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-1020-aws
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: rancher-host1
+ID: HZS4:ID67:7H65:72MP:M2XT:AQAK:7OZQ:JJ2S:Y3GU:NOT6:2663:52GP
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+
+WARNING: No swap limit support
++ docker build -t ****/flask-sample-demo:16 .
+Sending build context to Docker daemon  4.414MB
+Step 1/11 : FROM ****/flask-sample-demo:latest
+ ---> 83f146f72430
+Step 2/11 : MAINTAINER Your Name "saul.vaca@amaris.com"
+ ---> Running in 9bf2cc505e2c
+ ---> d34ae375be7c
+Removing intermediate container 9bf2cc505e2c
+Step 3/11 : RUN apt-get update -y &&     apt-get install -y python-pip python-dev build-essential
+ ---> Running in 822f833eee58
+Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu xenial-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu xenial-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.1ubuntu2).
+python-dev is already the newest version (2.7.11-1).
+python-pip is already the newest version (8.1.1-2ubuntu0.4).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+ ---> 341f8b43d890
+Removing intermediate container 822f833eee58
+Step 4/11 : COPY ./requirements.txt /app/requirements.txt
+ ---> f4aba80f71fb
+Removing intermediate container 68ab601eeeec
+Step 5/11 : WORKDIR /app
+ ---> 2630175bdf0c
+Removing intermediate container ea073d726b27
+Step 6/11 : RUN pip install --upgrade pip
+ ---> Running in e7cf685d6c04
+Requirement already up-to-date: pip in /usr/local/lib/python2.7/dist-packages
+ ---> 1a85c6f02930
+Removing intermediate container e7cf685d6c04
+Step 7/11 : RUN pip install -r requirements.txt
+ ---> Running in df2e6fd50c6b
+Requirement already satisfied: Flask==0.10.1 in /usr/local/lib/python2.7/dist-packages (from -r requirements.txt (line 1))
+Requirement already satisfied: itsdangerous>=0.21 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: Werkzeug>=0.7 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: Jinja2>=2.4 in /usr/local/lib/python2.7/dist-packages (from Flask==0.10.1->-r requirements.txt (line 1))
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python2.7/dist-packages (from Jinja2>=2.4->Flask==0.10.1->-r requirements.txt (line 1))
+ ---> 87baf9ac352f
+Removing intermediate container df2e6fd50c6b
+Step 8/11 : COPY . /app
+ ---> 93ce65a509d9
+Removing intermediate container 2613c0a7e99c
+Step 9/11 : EXPOSE 5000
+ ---> Running in 0a7f5d2dd0ab
+ ---> f4eab1d4e55e
+Removing intermediate container 0a7f5d2dd0ab
+Step 10/11 : ENTRYPOINT python
+ ---> Running in cafacafbf3fa
+ ---> db2718926f92
+Removing intermediate container cafacafbf3fa
+Step 11/11 : CMD hello.py
+ ---> Running in 054bab0f66d7
+ ---> c1219f354e79
+Removing intermediate container 054bab0f66d7
+Successfully built c1219f354e79
++ docker tag ****/flask-sample-demo:16 ****/flask-sample-demo:latest
++ docker images
+REPOSITORY                                  TAG                 IMAGE ID            CREATED                  SIZE
+****/flask-sample-demo                16                  c1219f354e79        Less than a second ago   500MB
+****/flask-sample-demo                latest              c1219f354e79        Less than a second ago   500MB
+****/flask-sample-demo                15                  83f146f72430        2 minutes ago            496MB
+****/flask-sample-demo                14                  9bfa31fcb5c7        7 minutes ago            488MB
+<none>                                      <none>              fda130786505        8 minutes ago            488MB
+****/flask-sample-demo                13                  58e80aa6aa0d        9 minutes ago            488MB
+<none>                                      <none>              457132687262        12 minutes ago           488MB
+****/flask-sample-demo                12                  ba203c04dca2        12 minutes ago           488MB
+****/flask-sample-demo                11                  45ff6ab2e81c        2 days ago               488MB
+****/flask-sample-demo                <none>              7f1f9c6f91d1        2 days ago               483MB
+****/flask-sample-demo                <none>              78a09ae9dcb8        2 days ago               478MB
+****/flask-sample-demo                10                  53f86ece1876        2 days ago               483MB
+****/flask-sample-demo                9                   26f990a40629        2 days ago               478MB
+****/flask-sample-demo                8                   7251c12985e5        2 days ago               478MB
+****/jenkins-slave-jdk-docker         latest              e86e67fdcfb3        2 days ago               740MB
+****/jenkins-slave-jdk-docker         <none>              8d25dd88d4d3        2 days ago               740MB
+****/jenkins-slave-jdk-docker         <none>              4b5f7f31d50f        2 days ago               673MB
+****/jenkins-slave-ssh-xenial         latest              bbab5e0cb129        3 days ago               430MB
+****/flask-sample-demo                <none>              da447c796781        10 days ago              469MB
+jenkins/jenkins                             2.73.2              e6b6a36fca5a        3 weeks ago              814MB
+prom/node-exporter                          latest              12d51ffa2b22        4 weeks ago              22.8MB
+rancher/agent                               v1.2.6              14af8fd16e1f        2 months ago             237MB
+rancher/network-manager                     v0.7.8              57331ed1b3ed        2 months ago             249MB
+rancher/net                                 v0.11.9             e8c5234872e1        2 months ago             267MB
+rancher/dns                                 v0.15.3             2779a18358f2        2 months ago             240MB
+rancher/metadata                            v0.9.4              387e4153c185        2 months ago             251MB
+rancher/healthcheck                         v0.3.3              14de771cc178        2 months ago             385MB
+rancher/lb-service-haproxy                  v0.7.9              774f6505bd28        3 months ago             312MB
+rancher/storage-nfs                         v0.8.5              7a35abd1426c        3 months ago             218MB
+rancher/scheduler                           v0.8.2              690ef14a99b7        3 months ago             242MB
+infinityworks/graf-db                       11                  2c4fd7c7333a        6 months ago             4.54MB
+prom/prometheus                             v1.6.0              c351d5f42485        6 months ago             75.3MB
+infinityworks/prom-conf                     19                  ece6596a4ee7        6 months ago             3.99MB
+rancher/net                                 holder              665d9f6e8cc1        7 months ago             267MB
+kibana                                      5.3.0               9fb73273a30c        7 months ago             329MB
+grafana/grafana                             4.2.0               8c4ef64b4ad1        7 months ago             278MB
+google/cadvisor                             latest              f9ba08bafdea        8 months ago             57.3MB
+infinityworks/prometheus-rancher-exporter   v0.22.52            43b3ae5364ea        9 months ago             23.7MB
+kibana                                      4.6.3               d3b4e3b5b106        10 months ago            303MB
+benhall/dind-jenkins-agent                  latest              d97d6673e8f9        19 months ago            659MB
+elasticsearch                               1.7.3               c6e1beef1acb        23 months ago            345MB
+rancher/kopf                                v0.4.0              f3e805a34ebd        2 years ago              182MB
+rancher/elasticsearch-conf                  v0.4.0              eebd86a05800        2 years ago              10.5MB
+rancher/nginx-conf                          v0.2.0              70e818251292        2 years ago              10.5MB
+rancher/nginx                               v1.9.4-3            5bb0cd35a1d8        2 years ago              133MB
+rancher/logstash-config                     v0.2.0              f8f9bb811e0b        2 years ago              10.5MB
+rancher/logspout-logstash                   v0.2.0              1c246d084501        2 years ago              24.4MB
+redis                                       3.0.3               a70b69767606        2 years ago              109MB
+kibana                                      4.1.1               5ff0cd0806dd        2 years ago              184MB
+logstash                                    1.5.3-1             a9ee61d11cf1        2 years ago              631MB
++ docker login --username=**** --password=****
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+Login Succeeded
++ docker push ****/flask-sample-demo:16
+The push refers to a repository [docker.io/****/flask-sample-demo]
+6787044d3a34: Preparing
+d9a882680271: Preparing
+caf4453ed4e2: Preparing
+a40f5bdcf3ba: Preparing
+6cdf7aa4fdea: Preparing
+e20dfc4adf68: Preparing
+dcc5ed556845: Preparing
+34a637d2ced7: Preparing
+013d91ebcaaa: Preparing
+7dfdb87be750: Preparing
+8cbb2b0e177c: Preparing
+b2e77a107b42: Preparing
+b2e77a107b42: Preparing
+8bd5cadd61e0: Preparing
+a9aadae01b35: Preparing
+84ba8f3ba614: Preparing
+fe8e8df9338d: Preparing
+e8010f515a15: Preparing
+67b62578d2ff: Preparing
+111bb97ef3e2: Preparing
+fc4449dcfea7: Preparing
+7dbbbe1535a8: Preparing
+24a8ac80c9e3: Preparing
+76ff07f936dc: Preparing
+f6cdc414647b: Preparing
+0e77919b7ed6: Preparing
+1c72559dc8d3: Preparing
+d17be6ca8f10: Preparing
+0f90a7886849: Preparing
+0245e3935136: Preparing
+b12ad604f2de: Preparing
+641237997572: Preparing
+bb7751d64090: Preparing
+fe98809efa74: Preparing
+de60d6380f8e: Preparing
+dc766b05495a: Preparing
+a98d02e01ad3: Preparing
+ab54d222f87e: Preparing
+7c4982caf6f0: Preparing
+471280745afb: Preparing
+2de4d4d5f16c: Preparing
+dfb4f676e5d8: Preparing
+bc6048630a3a: Preparing
+21a67b9bae9e: Preparing
+93b91316636d: Preparing
+45385842172e: Preparing
+a40a52627633: Preparing
+10b203ce6fbe: Preparing
+d59c7691cd4c: Preparing
+e31576f158d8: Preparing
+49907af65b0a: Preparing
+4589f96366e6: Preparing
+b97229212d30: Preparing
+cd181336f142: Preparing
+0f5ff0cf6a1c: Preparing
+e20dfc4adf68: Waiting
+dcc5ed556845: Waiting
+34a637d2ced7: Waiting
+013d91ebcaaa: Waiting
+7dfdb87be750: Waiting
+8cbb2b0e177c: Waiting
+b2e77a107b42: Waiting
+8bd5cadd61e0: Waiting
+a9aadae01b35: Waiting
+84ba8f3ba614: Waiting
+fe8e8df9338d: Waiting
+e8010f515a15: Waiting
+67b62578d2ff: Waiting
+111bb97ef3e2: Waiting
+fc4449dcfea7: Waiting
+7dbbbe1535a8: Waiting
+24a8ac80c9e3: Waiting
+76ff07f936dc: Waiting
+f6cdc414647b: Waiting
+0e77919b7ed6: Waiting
+1c72559dc8d3: Waiting
+d17be6ca8f10: Waiting
+0f90a7886849: Waiting
+0245e3935136: Waiting
+b12ad604f2de: Waiting
+641237997572: Waiting
+bb7751d64090: Waiting
+fe98809efa74: Waiting
+de60d6380f8e: Waiting
+dc766b05495a: Waiting
+a98d02e01ad3: Waiting
+ab54d222f87e: Waiting
+7c4982caf6f0: Waiting
+471280745afb: Waiting
+2de4d4d5f16c: Waiting
+bc6048630a3a: Waiting
+21a67b9bae9e: Waiting
+93b91316636d: Waiting
+45385842172e: Waiting
+a40a52627633: Waiting
+10b203ce6fbe: Waiting
+d59c7691cd4c: Waiting
+e31576f158d8: Waiting
+49907af65b0a: Waiting
+4589f96366e6: Waiting
+b97229212d30: Waiting
+cd181336f142: Waiting
+0f5ff0cf6a1c: Waiting
+dfb4f676e5d8: Waiting
+a40f5bdcf3ba: Pushed
+d9a882680271: Pushed
+caf4453ed4e2: Pushed
+6cdf7aa4fdea: Pushed
+6787044d3a34: Pushed
+dcc5ed556845: Pushed
+34a637d2ced7: Pushed
+013d91ebcaaa: Pushed
+e20dfc4adf68: Pushed
+7dfdb87be750: Pushed
+b2e77a107b42: Pushed
+8bd5cadd61e0: Pushed
+84ba8f3ba614: Layer already exists
+fe8e8df9338d: Layer already exists
+e8010f515a15: Layer already exists
+67b62578d2ff: Layer already exists
+8cbb2b0e177c: Pushed
+fc4449dcfea7: Layer already exists
+24a8ac80c9e3: Layer already exists
+111bb97ef3e2: Layer already exists
+7dbbbe1535a8: Layer already exists
+76ff07f936dc: Layer already exists
+f6cdc414647b: Layer already exists
+0e77919b7ed6: Layer already exists
+1c72559dc8d3: Layer already exists
+d17be6ca8f10: Layer already exists
+a9aadae01b35: Pushed
+0f90a7886849: Layer already exists
+b12ad604f2de: Layer already exists
+641237997572: Layer already exists
+bb7751d64090: Layer already exists
+0245e3935136: Layer already exists
+fe98809efa74: Layer already exists
+de60d6380f8e: Layer already exists
+a98d02e01ad3: Layer already exists
+dc766b05495a: Layer already exists
+ab54d222f87e: Layer already exists
+7c4982caf6f0: Layer already exists
+471280745afb: Layer already exists
+2de4d4d5f16c: Layer already exists
+dfb4f676e5d8: Layer already exists
+bc6048630a3a: Layer already exists
+93b91316636d: Layer already exists
+21a67b9bae9e: Layer already exists
+45385842172e: Layer already exists
+a40a52627633: Layer already exists
+10b203ce6fbe: Layer already exists
+49907af65b0a: Layer already exists
+4589f96366e6: Layer already exists
+b97229212d30: Layer already exists
+d59c7691cd4c: Layer already exists
+e31576f158d8: Layer already exists
+cd181336f142: Layer already exists
+0f5ff0cf6a1c: Layer already exists
+16: digest: sha256:26b1b6e882c84322fba17d521e8aa3085293ebc2357483df84c59df82081838e size: 11783
+Deploy/Upgrade image[docker:****/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is active
+waiting service state to be upgraded
+current service state is upgraded
+waiting service state to be active
+current service state is active
+Sending e-mails to: saul.vaca@amaris.com
+Finished: SUCCESS

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-11-06 11:00:31.267 UTC</timestamp>
+  <md5sum>da60d55157e2a744e5e561fa6ce9c800</md5sum>
+  <fileName>Credential id=626933cd-d579-414a-a0f3-6c893e2fb9b1 name=ichwill100/****** (dockerhub)</fileName>
+  <usages>
+    <entry>
+      <string>demo-flask-jenkins-slave</string>
+      <ranges>15-19</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

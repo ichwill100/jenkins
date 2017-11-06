@@ -1,0 +1,143 @@
+Started by GitHub push by ichwill100
+Building remotely on [8mha:////4LeA2PG2rcvQ0yJel9v1e1EEZn93pvbFjs2/hV6x/d+/AAAAqR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzhEgZZ/eT83ILSktQi/ZT85OzUIl3jRLO0FEtjo6RUAyMAxgYafdIAAAA=[0mdocker-3a6fd932be02 (docker) in workspace /home/jenkins/workspace/demo-flask-jenkins-slave
+Cloning the remote Git repository
+Cloning repository https://github.com/ichwill100/flask-sample
+ > git init /home/jenkins/workspace/demo-flask-jenkins-slave # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ichwill100/flask-sample # timeout=10
+Fetching upstream changes from https://github.com/ichwill100/flask-sample
+using GIT_ASKPASS to set credentials Github ichwill100
+ > git fetch --tags --progress https://github.com/ichwill100/flask-sample +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 0e0c3b2d7d27805a52a1c518f1a382f052e2aeec (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0e0c3b2d7d27805a52a1c518f1a382f052e2aeec
+Commit message: "test 07"
+ > git rev-list 5b3d240b2bba8931dee4a46e8164cf4eec870231 # timeout=10
+[demo-flask-jenkins-slave] $ /bin/sh -xe /tmp/jenkins7149220010433541753.sh
++ ls
+Dockerfile
+hello.py
+requirements.txt
+static
+templates
++ docker info
+Containers: 18
+ Running: 15
+ Paused: 0
+ Stopped: 3
+Images: 27
+Server Version: 17.03.1-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local rancher-nfs
+ Network: bridge host macvlan null overlay
+ Log: 
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 4ab9917febca54791c5f071a9d1f404867857fcc
+runc version: 54296cf40ad8143b62dbcaa1d90e520a2136ddfe
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-1020-aws
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: rancher-host1
+ID: HZS4:ID67:7H65:72MP:M2XT:AQAK:7OZQ:JJ2S:Y3GU:NOT6:2663:52GP
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+
+WARNING: No swap limit support
++ docker build -t ichwill100/flask-sample-demo:9 .
+Sending build context to Docker daemon  4.408MB
+Step 1/11 : FROM ichwill100/flask-sample-demo:latest
+ ---> da447c796781
+Step 2/11 : MAINTAINER Your Name "saul.vaca@amaris.com"
+ ---> Using cache
+ ---> 4a7690e20a09
+Step 3/11 : RUN apt-get update -y &&     apt-get install -y python-pip python-dev build-essential
+ ---> Using cache
+ ---> 7a1d461ddcb4
+Step 4/11 : COPY ./requirements.txt /app/requirements.txt
+ ---> Using cache
+ ---> 6fc555964f65
+Step 5/11 : WORKDIR /app
+ ---> Using cache
+ ---> 3f7c434d523d
+Step 6/11 : RUN pip install --upgrade pip
+ ---> Using cache
+ ---> 7376d0ee3056
+Step 7/11 : RUN pip install -r requirements.txt
+ ---> Using cache
+ ---> 6a7f0accb79b
+Step 8/11 : COPY . /app
+ ---> ee888a4c022a
+Removing intermediate container 751f66512910
+Step 9/11 : EXPOSE 5000
+ ---> Running in c7788906c76d
+ ---> b392ba387131
+Removing intermediate container c7788906c76d
+Step 10/11 : ENTRYPOINT python
+ ---> Running in af014caa0cc0
+ ---> 679ebe38d4b0
+Removing intermediate container af014caa0cc0
+Step 11/11 : CMD hello.py
+ ---> Running in 5c66e4560b07
+ ---> 26f990a40629
+Removing intermediate container 5c66e4560b07
+Successfully built 26f990a40629
++ docker tag ichwill100/flask-sample-demo:9 ichwill100/flask-sample-demo:latest
++ docker images
+REPOSITORY                            TAG                 IMAGE ID            CREATED                  SIZE
+ichwill100/flask-sample-demo          9                   26f990a40629        Less than a second ago   478MB
+ichwill100/flask-sample-demo          latest              26f990a40629        Less than a second ago   478MB
+ichwill100/flask-sample-demo          8                   7251c12985e5        11 minutes ago           478MB
+ichwill100/jenkins-slave-jdk-docker   latest              e86e67fdcfb3        12 minutes ago           740MB
+ichwill100/jenkins-slave-jdk-docker   <none>              8d25dd88d4d3        23 minutes ago           740MB
+ichwill100/jenkins-slave-jdk-docker   <none>              4b5f7f31d50f        35 minutes ago           673MB
+ichwill100/jenkins-slave-ssh-xenial   latest              bbab5e0cb129        23 hours ago             430MB
+ichwill100/flask-sample-demo          <none>              da447c796781        8 days ago               469MB
+jenkins/jenkins                       2.73.2              e6b6a36fca5a        3 weeks ago              814MB
+rancher/agent                         v1.2.6              14af8fd16e1f        2 months ago             237MB
+rancher/network-manager               v0.7.8              57331ed1b3ed        2 months ago             249MB
+rancher/net                           v0.11.9             e8c5234872e1        2 months ago             267MB
+rancher/dns                           v0.15.3             2779a18358f2        2 months ago             240MB
+rancher/metadata                      v0.9.4              387e4153c185        2 months ago             251MB
+rancher/healthcheck                   v0.3.3              14de771cc178        2 months ago             385MB
+rancher/lb-service-haproxy            v0.7.9              774f6505bd28        2 months ago             312MB
+rancher/storage-nfs                   v0.8.5              7a35abd1426c        3 months ago             218MB
+rancher/scheduler                     v0.8.2              690ef14a99b7        3 months ago             242MB
+rancher/net                           holder              665d9f6e8cc1        7 months ago             267MB
+benhall/dind-jenkins-agent            latest              d97d6673e8f9        19 months ago            659MB
+Deploy/Upgrade image[docker:ichwill100/flask-sample-demo:latest] to service [flask-sample-stack/flask-sample-demo] to rancher environment [http://52.57.250.87:8080/v2-beta/projects/1a21]
+Stack already exist. skip
+Upgrading service instance
+service flask-sample-demo current state is upgraded
+ERROR: Before upgrade service the service instance state should be 'inactive' or 'active'
+[8mha:////4BjWT5Iaof6VliD7FyhoN9gLd4yTPBhKMIDvX9cYNqCoAAAAVx+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0mV3NWzufebKBsTA0NFEYMUmgZnCA1SyAABjCCFBQC2xNaiYAAAAA==[0mSending e-mails to: saul.vaca@amaris.com
+Finished: FAILURE

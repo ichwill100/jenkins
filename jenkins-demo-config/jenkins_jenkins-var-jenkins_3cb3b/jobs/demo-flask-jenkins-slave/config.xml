@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Docker image build in Jenkins slave container on-demand after GitHub push</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
+      <projectUrl>https://github.com/ichwill100/flask-sample/</projectUrl>
+      <displayName>flask-sample</displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.3">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/ichwill100/flask-sample</url>
+        <credentialsId>6314845c-3abe-4c65-9f8e-d2002ee67c88</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>docker</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.28.1">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>ls
+docker info
+docker build -t ichwill100/flask-sample-demo:${BUILD_NUMBER} .
+docker tag ichwill100/flask-sample-demo:${BUILD_NUMBER} ichwill100/flask-sample-demo:latest
+docker images
+docker login --username=$DOCKER_USER --password=$DOCKER_PASS
+docker push ichwill100/flask-sample-demo:${BUILD_NUMBER}
+docker push ichwill100/flask-sample-demo:latest</command>
+    </hudson.tasks.Shell>
+    <jenkins.plugins.rancher.RancherBuilder plugin="rancher@1.0.5">
+      <environmentId>1a21</environmentId>
+      <endpoint>http://52.57.250.87:8080/v2-beta</endpoint>
+      <credentialId>f9482d41-15c5-42d2-bda5-aa4cdc178537</credentialId>
+      <service>flask-sample-stack/flask-sample-demo</service>
+      <image>ichwill100/flask-sample-demo:latest</image>
+      <confirm>true</confirm>
+      <ports></ports>
+      <environments></environments>
+    </jenkins.plugins.rancher.RancherBuilder>
+  </builders>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.20">
+      <recipients>saul.vaca@amaris.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers>
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.13">
+      <bindings>
+        <org.jenkinsci.plugins.credentialsbinding.impl.UsernamePasswordMultiBinding>
+          <credentialsId>626933cd-d579-414a-a0f3-6c893e2fb9b1</credentialsId>
+          <usernameVariable>DOCKER_USER</usernameVariable>
+          <passwordVariable>DOCKER_PASS</passwordVariable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.UsernamePasswordMultiBinding>
+      </bindings>
+    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+  </buildWrappers>
+</project>
