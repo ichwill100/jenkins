@@ -10,7 +10,7 @@ RUN apt-get update &&\
 RUN adduser --quiet jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
-RUN  curl -sSL https://get.docker.com/ | sh
+RUN curl https://releases.rancher.com/install-docker/17.03.sh | sh
 RUN apt-get update &&\
     apt-get install -y openjdk-8-jdk &&\
         apt-get clean -y && rm -rf /var/lib/apt/lists/*
